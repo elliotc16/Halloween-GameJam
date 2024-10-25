@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4298408845317324159}
   - component: {fileID: 9109129311552632538}
   - component: {fileID: 4554672880163148422}
-  - component: {fileID: 323181615070958694}
-  - component: {fileID: 9041351156601289258}
+  - component: {fileID: -6857476757210368105}
+  - component: {fileID: -4299959149557812808}
   m_Layer: 0
-  m_Name: PlayerBullet
-  m_TagString: Bullet
+  m_Name: EnemyBullet
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3620067912164423695}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.28, y: 0.97, z: 0}
+  m_LocalPosition: {x: -7.465022, y: 2.5553637, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8867924, g: 0.065254435, b: 0.065254435, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,7 +114,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &323181615070958694
+--- !u!61 &-6857476757210368105
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9041351156601289258
+--- !u!114 &-4299959149557812808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3620067912164423695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3522debaa4db10f44ba8afe10ae7aa8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a7ed099da7cfd445875c56d16497e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  speed: 15
   lifetime: 2

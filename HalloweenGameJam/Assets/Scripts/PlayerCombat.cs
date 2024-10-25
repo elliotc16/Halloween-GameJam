@@ -22,4 +22,17 @@ public class PlayerCombat : MonoBehaviour
         }
         timer += Time.deltaTime;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Destroy(collision.gameObject);
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        
+    }
 }
