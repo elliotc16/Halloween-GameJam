@@ -50,4 +50,6 @@ public class Enemy : MonoBehaviour
         Vector2 distance = playerTransform.position - transform.position;
         return (distance).magnitude;
     }
+
+
 }

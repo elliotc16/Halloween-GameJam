@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6050692775735332909, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6191051354128197353, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_Name
       value: ChargeEnemy
