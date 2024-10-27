@@ -86,6 +86,7 @@ MonoBehaviour:
   health: 2
   sightRange: 80
   attackRate: 1
+  flickerLength: 0.1
   meleeRange: 5
   chargeSpeed: 25
   chargeCD: 2

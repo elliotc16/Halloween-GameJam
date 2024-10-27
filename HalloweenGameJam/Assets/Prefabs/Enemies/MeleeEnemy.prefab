@@ -175,6 +175,7 @@ MonoBehaviour:
   health: 2
   sightRange: 0
   attackRate: 1
+  flickerLength: 0.1
   meleeRange: 5
   lungeRange: 60
   initialLungeSpeed: 10

@@ -175,3 +175,4 @@ MonoBehaviour:
   health: 2
   sightRange: 100
   attackRate: 1
+  flickerLength: 0.1
