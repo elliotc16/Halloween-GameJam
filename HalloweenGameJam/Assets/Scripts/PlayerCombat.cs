@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -85,11 +86,15 @@ public class PlayerCombat : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Debug.Log("You die big sad :(");
-            Destroy(gameObject);
+            playerDies();
             return;
         }
         TurnInvincible();
+    }
+
+    private void playerDies()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     private void TurnInvincible()
