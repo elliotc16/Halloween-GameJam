@@ -66,19 +66,44 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(knockbackLength); // repeat above code until certain amount of seconds has passed
         isKnockback = false;
     }
-    private void OnTriggerEnter2D(Collider2D collider)
+
+    //For when player runs into enemy
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(collider.gameObject.tag == "Enemy" && !isKnockback)
+        var collider = collision.collider;
+        if (collider.gameObject.tag == "Enemy" && !isKnockback)
         {
             if (isDashing)
             {
                 isDashing = false;
                 rb.velocity = Vector2.zero;
             }
+            //gets direction for knockback
             Vector2 direction = collider.gameObject.transform.position - transform.position;
             this.GetComponent<PlayerCombat>().TakeDamage(1);
+            var rbc = collider.gameObject.GetComponent<Rigidbody2D>();
+            //stops enemy spinning or being pushed when player runs into them, may be better solution but who cares
+            rbc.velocity = Vector2.zero;
+            rbc.angularVelocity = 0;
+            rbc.rotation = 0;
+
             StartCoroutine(Knockback(-direction));
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collider)
+    //{
+        
+    //    if(collider.gameObject.tag == "Enemy" && !isKnockback)
+    //    {
+    //        if (isDashing)
+    //        {
+    //            isDashing = false;
+    //            rb.velocity = Vector2.zero;
+    //        }
+    //        Vector2 direction = collider.gameObject.transform.position - transform.position;
+    //        this.GetComponent<PlayerCombat>().TakeDamage(1);
+    //        StartCoroutine(Knockback(-direction));
+    //    }
+    //}
 }
