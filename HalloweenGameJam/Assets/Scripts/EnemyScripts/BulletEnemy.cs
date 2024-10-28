@@ -45,6 +45,9 @@ public class BulletEnemy : MonoBehaviour
         transform.position = startPos;
         direction = destPos - startPos;
         direction.Normalize();
+        // rotate the projectile towards its target 
+        float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
         direction = Quaternion.Euler(0, 0, angle) * direction;
         rb.velocity = direction * speed;
     }
