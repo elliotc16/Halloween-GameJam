@@ -112935,7 +112935,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!212 &475468095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113002,7 +113002,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1312005626}
-  - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &475468097
@@ -113045,6 +113044,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -113124,8 +113124,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 475468096}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d0bdabb2935b947ab1265fec7ba129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &654432058
 GameObject:
   m_ObjectHideFlags: 0
@@ -115588,7 +115600,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 105
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -115758,7 +115770,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 104
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -118398,7 +118410,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 17
+      m_TileSpriteIndex: 103
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -119225,14 +119237,14 @@ Tilemap:
     m_Data: {fileID: -1504378540, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 11761254, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -316320418, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 18
     m_Data: {fileID: -691242884, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   - m_RefCount: 252
     m_Data: {fileID: -412132437, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -710805228, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 12
     m_Data: {fileID: 1960997943, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   - m_RefCount: 2
@@ -119243,8 +119255,8 @@ Tilemap:
     m_Data: {fileID: 1621693275, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 2033265100, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 354073927, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 1218894461, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   - m_RefCount: 2
@@ -119415,12 +119427,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 354073927, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -316320418, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -710805228, guid: 05c6f97a1a165634880529d670a395e5, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 553
     m_Data:
@@ -119975,6 +119987,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 519420032}
   - {fileID: 475468096}
   - {fileID: 354120167}
   - {fileID: 1040939549}

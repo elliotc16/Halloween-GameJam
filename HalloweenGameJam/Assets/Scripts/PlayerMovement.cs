@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private bool isKnockback;
 
+    private Camera mainCamera;
+    private Vector3 mousePos;
+    private Vector3 pointDirection;
+    private float rotationZ;
+
     [SerializeField] private float cooldown;
     private float dashTimer;
 
@@ -49,6 +54,18 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash()); // start the Dash coroutine, i.e. function continues repeatedly until yield return called
             dashTimer = 0f; // reset timer
         }
+
+        // take mouse position using camera as reference
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        // direction vector = difference between mouse position and player position
+        pointDirection = mousePos - transform.position;
+        pointDirection = new Vector2(pointDirection.x, pointDirection.y).normalized;
+
+        // rotate the player towards the cursor (-90 since original sprite is vertical)
+        rotationZ = Mathf.Atan2(pointDirection.y, pointDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotationZ - 90);
     }
 
     private IEnumerator Dash()
