@@ -176,5 +176,6 @@ MonoBehaviour:
   sightRange: 100
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   weaponRange: 60
   bullet: {fileID: 8932716966450593325, guid: 4c4bbf98d72ff854388d3393bc058fc0, type: 3}

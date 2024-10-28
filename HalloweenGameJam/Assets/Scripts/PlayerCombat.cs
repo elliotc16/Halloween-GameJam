@@ -11,7 +11,10 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float meleeRate; // melee attacks per second
     [SerializeField] private float invicibilityLength;  //length of invicibility when hit
     [SerializeField] private float invicibilityFlickerCD;
-    
+
+    [SerializeField] private AudioClip shootSoundEffect;
+    [SerializeField] private AudioClip meleeSoundEffect;
+    [SerializeField] private AudioClip damageSoundEffect;
 
     private int health;
     private float timer;
@@ -42,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
             timer = 0;
+            SFXManager.instance.PlaySoundFXClip(shootSoundEffect, transform, 0.1f);
         }
         else if(Input.GetMouseButton(1) && meleeTimer > (1/meleeRate))
         {
@@ -55,6 +59,8 @@ public class PlayerCombat : MonoBehaviour
 
             Melee.MakeMeleeAttack(direction);
             meleeTimer = 0;
+
+            SFXManager.instance.PlaySoundFXClip(meleeSoundEffect, transform, 0.2f);
         }
         timer += Time.deltaTime;
         meleeTimer += Time.deltaTime;
@@ -98,6 +104,7 @@ public class PlayerCombat : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+
         //No damage if invicible
         if (invincible)
         {
@@ -110,6 +117,7 @@ public class PlayerCombat : MonoBehaviour
             playerDies();
             return;
         }
+        SFXManager.instance.PlaySoundFXClip(damageSoundEffect, transform, 0.6f);
         TurnInvincible();
     }
 

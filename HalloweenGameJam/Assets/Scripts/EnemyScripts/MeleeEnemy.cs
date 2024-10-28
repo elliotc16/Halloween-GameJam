@@ -31,6 +31,11 @@ public class MeleeEnemy : Enemy
         Melee = GetComponent<Melee>();
     }
 
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
     // Update is called once per frame
     void Update()
     {

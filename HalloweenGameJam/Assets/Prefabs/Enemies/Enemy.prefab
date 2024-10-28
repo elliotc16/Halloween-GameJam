@@ -131,6 +131,7 @@ MonoBehaviour:
   sightRange: 100
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
 --- !u!61 &-1528366487176961454
 BoxCollider2D:
   m_ObjectHideFlags: 0

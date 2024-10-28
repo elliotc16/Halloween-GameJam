@@ -132,12 +132,13 @@ MonoBehaviour:
   sightRange: 0
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   meleeRange: 5
   lungeRange: 60
   initialLungeSpeed: 10
   maxLungeSpeed: 25
   lungeCD: 5
-  meleeCDAfterLunge: 0
+  meleeCDAfterLunge: 0.3
 --- !u!114 &6304428559873729402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +155,6 @@ MonoBehaviour:
   meleeLength: 0.3
   angleToSweep: 120
   meleeRange: 1.5
-  damage: 1
 --- !u!61 &730508394896720188
 BoxCollider2D:
   m_ObjectHideFlags: 0

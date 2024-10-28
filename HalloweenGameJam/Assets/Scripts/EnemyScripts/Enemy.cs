@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float attackRate; // bullets that can be fired per second
     [SerializeField] protected float flickerLength;  //How long enemy is invisible when hit
 
+    [SerializeField] protected AudioClip damageSound;
+
     protected Transform playerTransform;
     protected float attackTimer;
 
@@ -26,15 +28,11 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         transform.rotation = Quaternion.identity;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -52,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        SFXManager.instance.PlaySoundFXClip(damageSound, transform, 0.25f);
         health -= damage;
         if (health <= 0)
         {

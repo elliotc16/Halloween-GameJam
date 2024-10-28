@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private bool isKnockback;
 
+    [SerializeField] private AudioClip dashSoundEffect;
+
     [SerializeField] private float cooldown;
     private float dashTimer;
 
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && dashTimer > cooldown && isKnockback == false)
         {
+            SFXManager.instance.PlaySoundFXClip(dashSoundEffect, transform, 1f);
             StartCoroutine(Dash()); // start the Dash coroutine, i.e. function continues repeatedly until yield return called
             dashTimer = 0f; // reset timer
         }

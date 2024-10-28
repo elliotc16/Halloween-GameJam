@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02143526
+      value: -5.786074
       objectReference: {fileID: 0}
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.558391
+      value: 9.532156
       objectReference: {fileID: 0}
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,6 +88,7 @@ MonoBehaviour:
   sightRange: 40
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   meleeRange: 5
   chargeSpeed: 25
   chargeCD: 2
