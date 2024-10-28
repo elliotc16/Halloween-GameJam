@@ -68,10 +68,18 @@ public class PlayerMovement : MonoBehaviour
         isKnockback = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        HitWithKnockback(collider);
+    }
     //For when player runs into enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var collider = collision.collider;
+        HitWithKnockback(collision.collider);
+    }
+
+    private void HitWithKnockback(Collider2D collider)
+    {
         if (collider.gameObject.tag == "Enemy" && !isKnockback)
         {
             if (isDashing)

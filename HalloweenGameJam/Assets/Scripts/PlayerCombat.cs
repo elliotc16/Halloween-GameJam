@@ -2,16 +2,20 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Melee))]
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private int maxHealth;
     [SerializeField] private float fireRate; // bullets that can be fired per second
-    [SerializeField] private float invicibilityLength;
+    [SerializeField] private float meleeRate; // melee attacks per second
+    [SerializeField] private float invicibilityLength;  //length of invicibility when hit
     [SerializeField] private float invicibilityFlickerCD;
+    
 
     private int health;
     private float timer;
+    private float meleeTimer;
     private bool invincible;
     //timer to determine length of invicibility
     private float invincibleTimer;
@@ -19,13 +23,16 @@ public class PlayerCombat : MonoBehaviour
     //determines whether player is hidden due to invicibility flicker
     private bool hidden;
 
+    private Melee Melee;
     private SpriteRenderer sr;
     void Start()
     {
         timer = 1 / fireRate;
+        meleeTimer = 1 / meleeRate;
         invincible = false;
         health = maxHealth;
         sr = GetComponent<SpriteRenderer>();
+        Melee = GetComponent<Melee>();
     }
 
     void Update()
@@ -36,7 +43,21 @@ public class PlayerCombat : MonoBehaviour
             Instantiate(bullet, transform.position, Quaternion.identity);
             timer = 0;
         }
+        else if(Input.GetMouseButton(1) && meleeTimer > (1/meleeRate))
+        {
+            // take mouse position using camera as reference
+            var mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            // direction vector = difference between mouse position and player position
+            var direction = mousePos - transform.position;
+            direction = (Vector2)direction.normalized;
+
+            Melee.MakeMeleeAttack(direction);
+            meleeTimer = 0;
+        }
         timer += Time.deltaTime;
+        meleeTimer += Time.deltaTime;
 
         //determines whether to end invicibility and if to hide/show player for flicker effect
         if (invincible)

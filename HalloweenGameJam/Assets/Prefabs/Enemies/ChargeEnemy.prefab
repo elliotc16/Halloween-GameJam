@@ -58,6 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7519895477216436879, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+    - {fileID: 6050692775735332909, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -84,12 +85,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 2
-  sightRange: 80
+  sightRange: 40
   attackRate: 1
   flickerLength: 0.1
   meleeRange: 5
   chargeSpeed: 25
   chargeCD: 2
-  chargeRange: 60
+  chargeRange: 30
   chargeFirstPhaseTime: 0.5
   chargeThirdPhaseTime: 0.05
