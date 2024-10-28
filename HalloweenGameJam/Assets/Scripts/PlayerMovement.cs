@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash()); // start the Dash coroutine, i.e. function continues repeatedly until yield return called
             dashTimer = 0f; // reset timer
         }
+
     }
 
     private IEnumerator Dash()

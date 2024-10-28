@@ -13,6 +13,7 @@ public class BulletPlayer : MonoBehaviour
     private Vector3 direction;
     private Vector3 mousePos;
     private Camera mainCamera;
+    private float rotation;
 
     private void Start()
     {
@@ -24,9 +25,13 @@ public class BulletPlayer : MonoBehaviour
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         // direction vector = difference between mouse position and player position
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; 
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         direction = mousePos - playerTransform.position;
         direction = new Vector2(direction.x, direction.y).normalized;
+
+        // rotate the projectile towards its target (-90 since original sprite is vertical)
+        rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation - 90);
     }
 
     private void FixedUpdate()
