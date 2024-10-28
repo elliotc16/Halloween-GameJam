@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Item
   - Wall
+  - Melee
   layers:
   - Default
   - TransparentFX

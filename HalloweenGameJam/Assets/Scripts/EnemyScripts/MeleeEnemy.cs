@@ -9,6 +9,7 @@ public class MeleeEnemy : Enemy
     [SerializeField] private float initialLungeSpeed; //speeds lunge starts and ends at
     [SerializeField] private float maxLungeSpeed; //max speed lunge reaches
     [SerializeField] private float lungeCD;
+    [SerializeField] private float meleeCDAfterLunge; //how long enemy waits after lunging to do melee attack
 
     private float lungeCDTimer = 0;
 
@@ -20,11 +21,19 @@ public class MeleeEnemy : Enemy
     private Vector2 maxLerpVelocity;
     private Vector2 minLerpVelocity;
     private Vector2 target;
+
+    private Melee Melee;
     // Start is called before the first frame update
     protected override void Start()
     {
         //calls the Enemy start() method
         base.Start();
+        Melee = GetComponent<Melee>();
+    }
+
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame
@@ -65,15 +74,19 @@ public class MeleeEnemy : Enemy
                 lungeProgessTimer += Time.deltaTime;
             }
         }
-        else if(PlayerDistance() < meleeRange )
+        //make regular melee attack
+        else if(PlayerDistance() < meleeRange && attackTimer > 1 / attackRate)
         {
-          //something something attack
-            
+            Vector2 direction = playerTransform.position - transform.position;
+            direction.Normalize();
+            Melee.MakeMeleeAttack(direction);
+            attackTimer = 0;
         }
         //Lunges if player in range and lunge cooldown done
         else if(PlayerDistance() < lungeRange && lungeCDTimer > lungeCD)
         {
             lungeAttack();
+            attackTimer = (1/attackRate) - meleeCDAfterLunge;
         }
         else
         {

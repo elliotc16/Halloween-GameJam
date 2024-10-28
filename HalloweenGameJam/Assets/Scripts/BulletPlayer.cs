@@ -9,6 +9,8 @@ public class BulletPlayer : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
+    public float damage;
+
     private float timer;
     private Vector3 direction;
     private Vector3 mousePos;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3636212263180400817}
   - component: {fileID: 1758674320784435294}
   - component: {fileID: 1467083907289173952}
-  - component: {fileID: 3827757659169588330}
   - component: {fileID: 8949972096335787962}
   - component: {fileID: -2943645300180020573}
   - component: {fileID: 7596106593046030353}
@@ -162,6 +161,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+  m_Constraints: 0
 --- !u!114 &8949972096335787962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   sightRange: 100
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   weaponRange: 100
   bullet: {fileID: 3620067912164423695, guid: f6a6747a0fc228441b28b0b0a630727e, type: 3}
 --- !u!61 &-2943645300180020573

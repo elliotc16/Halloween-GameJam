@@ -14,6 +14,7 @@ public class Pause : MonoBehaviour
     {
         isPaused = false;
         musicVolume = bgMusic.volume; // take original value of the background music's volume
+        pauseMenu.SetActive(false);
     }
 
     private void Update()

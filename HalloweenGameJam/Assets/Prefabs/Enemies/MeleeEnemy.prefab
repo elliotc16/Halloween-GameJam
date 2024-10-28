@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2997915849626299500}
   - component: {fileID: 3039669955862989286}
   - component: {fileID: 3253394822801794782}
-  - component: {fileID: 8489939865713549110}
   - component: {fileID: 1943886341901697795}
+  - component: {fileID: 6304428559873729402}
   - component: {fileID: 730508394896720188}
   m_Layer: 0
   m_Name: MeleeEnemy
@@ -115,51 +115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8489939865713549110
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484956436920225780}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1943886341901697795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,11 +132,29 @@ MonoBehaviour:
   sightRange: 0
   attackRate: 1
   flickerLength: 0.1
+  damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   meleeRange: 5
   lungeRange: 60
   initialLungeSpeed: 10
   maxLungeSpeed: 25
   lungeCD: 5
+  meleeCDAfterLunge: 0.3
+--- !u!114 &6304428559873729402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484956436920225780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c773b4ebd0fb24429984710d9353376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeleeAttack: {fileID: 7417697655187379237, guid: 666f9e034b1440942994148b383a3f82, type: 3}
+  meleeLength: 0.3
+  angleToSweep: 120
+  meleeRange: 1.5
 --- !u!61 &730508394896720188
 BoxCollider2D:
   m_ObjectHideFlags: 0
