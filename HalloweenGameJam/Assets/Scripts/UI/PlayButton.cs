@@ -9,6 +9,6 @@ public class PlayButton : MonoBehaviour
     // when play button is pressed, the scene number will be incremented
     public void PressPlay()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 }
