@@ -113034,7 +113034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3620067912164423695, guid: a1255013851dfbb41be22d7fcecc9d86, type: 3}
   maxHealth: 3
-  fireRate: 5
+  fireRate: 3
   meleeRate: 2
   invicibilityLength: 1
   invicibilityFlickerCD: 0.1

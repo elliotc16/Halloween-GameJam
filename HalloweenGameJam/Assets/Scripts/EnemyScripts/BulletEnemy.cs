@@ -40,11 +40,12 @@ public class BulletEnemy : MonoBehaviour
     /// </summary>
     /// <param name="startPos"></param>
     /// <param name="destPos"></param>
-    public void Fire(Vector2 startPos, Vector2 destPos)
+    public void Fire(Vector2 startPos, Vector2 destPos, float angle=0)
     {
         transform.position = startPos;
         direction = destPos - startPos;
         direction.Normalize();
+        direction = Quaternion.Euler(0, 0, angle) * direction;
         rb.velocity = direction * speed;
     }
 }
