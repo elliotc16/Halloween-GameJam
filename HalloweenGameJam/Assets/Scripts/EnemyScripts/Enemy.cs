@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected int damage;  //damage enemy deals
-    [SerializeField] protected int health;  //no. of player shots untill enemy deleted
+    [SerializeField] protected float health;  //no. of player shots untill enemy deleted
     [SerializeField] protected float sightRange; //determines range enemy will attack player
     [SerializeField] protected float attackRate; // bullets that can be fired per second
     [SerializeField] protected float flickerLength;  //How long enemy is invisible when hit
@@ -30,16 +31,26 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")   //Triggers when hit by player bullet
         {
+            TakeDamage(collision.GetComponent<BulletPlayer>().damage);
             Destroy(collision.gameObject);  //removes bullet
-            TakeDamage(1);
+        }
+
+        if (collision.gameObject.tag == "Melee")
+        {
+            TakeDamage(collision.GetComponent<MeleeAttack>().damage);
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

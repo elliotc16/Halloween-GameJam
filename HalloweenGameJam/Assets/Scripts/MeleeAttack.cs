@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+    [SerializeField] public float damage;
+
     float angleToSweep;
     float timer;
     float deltaAngle;
