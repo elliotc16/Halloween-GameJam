@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8271139910356087876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02143526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.558391
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6050692775735332909, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191051354128197353, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      propertyPath: m_Name
+      value: ChargeEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7519895477216436879, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6191051354128197353, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5723558070544869537}
+  m_SourcePrefab: {fileID: 100100000, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+--- !u!1 &2820367767827878573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6191051354128197353, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
+  m_PrefabInstance: {fileID: 8271139910356087876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5723558070544869537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2820367767827878573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c212605bb27a70647b50e3301f953c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  health: 2
+  sightRange: 80
+  attackRate: 1
+  flickerLength: 0.1
+  meleeRange: 5
+  chargeSpeed: 25
+  chargeCD: 2
+  chargeRange: 60
+  chargeFirstPhaseTime: 0.5
+  chargeThirdPhaseTime: 0.05

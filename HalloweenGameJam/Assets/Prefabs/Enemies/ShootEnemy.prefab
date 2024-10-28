@@ -175,5 +175,6 @@ MonoBehaviour:
   health: 2
   sightRange: 100
   attackRate: 1
+  flickerLength: 0.1
   weaponRange: 100
   bullet: {fileID: 3620067912164423695, guid: f6a6747a0fc228441b28b0b0a630727e, type: 3}

@@ -92199,6 +92199,8 @@ MonoBehaviour:
   speed: 6
   dashForce: 30
   dashLength: 0.1
+  knockbackForce: 30
+  knockbackLength: 0.1
   cooldown: 3
 --- !u!61 &475468093
 BoxCollider2D:
@@ -92354,6 +92356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3620067912164423695, guid: a1255013851dfbb41be22d7fcecc9d86, type: 3}
+  maxHealth: 3
   fireRate: 5
 --- !u!114 &475468098
 MonoBehaviour:
@@ -92367,6 +92370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8811550954cb26448800f43c0fbf0fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invicibilityLength: 2
+  invicibilityFlickerCD: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,8 @@ public class MeleeEnemy : Enemy
 {
     [SerializeField] private float meleeRange;
     [SerializeField] private float lungeRange;
-    [SerializeField] private float lungeSpeed;
+    [SerializeField] private float initialLungeSpeed; //speeds lunge starts and ends at
+    [SerializeField] private float maxLungeSpeed; //max speed lunge reaches
     [SerializeField] private float lungeCD;
 
     private float lungeCDTimer = 0;
@@ -15,7 +16,9 @@ public class MeleeEnemy : Enemy
     private bool lungingFirstPhase = false;
     private bool lungingSecondPhase = false;
     private float halfLungeTime;
+
     private Vector2 maxLerpVelocity;
+    private Vector2 minLerpVelocity;
     private Vector2 target;
     // Start is called before the first frame update
     protected override void Start()
@@ -32,7 +35,7 @@ public class MeleeEnemy : Enemy
         if (lungingFirstPhase)
         {
             //velocity increases over time, lerp calculates it as a percentage of time passed
-            rb.velocity = Vector2.Lerp(Vector2.zero, maxLerpVelocity, lungeProgessTimer / halfLungeTime);
+            rb.velocity = Vector2.Lerp(minLerpVelocity, maxLerpVelocity, lungeProgessTimer / halfLungeTime);
             //moves onto next phase or advances timer
             if(lungeProgessTimer > halfLungeTime)
             {
@@ -49,12 +52,13 @@ public class MeleeEnemy : Enemy
         else if (lungingSecondPhase) 
         {
             //velocity decreases over time, lerp calculates it as a percentage of time passed
-            rb.velocity = Vector2.Lerp(maxLerpVelocity,Vector2.zero, lungeProgessTimer / halfLungeTime);
+            rb.velocity = Vector2.Lerp(maxLerpVelocity,minLerpVelocity, lungeProgessTimer / halfLungeTime);
             //finishes lunge or advances timer
             if (lungeProgessTimer > halfLungeTime)
             {
                 lungeProgessTimer = 0;
                 lungingSecondPhase = false;
+                rb.velocity = Vector2.zero;
             }
             else
             {
@@ -96,8 +100,9 @@ public class MeleeEnemy : Enemy
         //reduces lunge distance so enemy stops just before the player
         displacement = displacement - direction * 2;
         var distance = displacement.magnitude;  //calculates distance of lunge
-        halfLungeTime = distance / (lungeSpeed); //calculates how long half of the lunge should take
+        halfLungeTime = distance / (initialLungeSpeed + maxLungeSpeed); //calculates how long half of the lunge should take
 
-        maxLerpVelocity = direction * lungeSpeed; //max velocity reached at mid point of lunge
+        minLerpVelocity = direction * initialLungeSpeed;
+        maxLerpVelocity = direction * maxLungeSpeed; //max velocity reached at mid point of lunge
     }
 }
