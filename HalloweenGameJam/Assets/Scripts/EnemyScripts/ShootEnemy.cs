@@ -13,6 +13,11 @@ public class ShootEnemy : Enemy
         base.Start();
     }
 
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -35,6 +35,11 @@ public class ChargeEnemy : Enemy
         chargeSecondPhaseTime = 1 - chargeFirstPhaseTime - chargeThirdPhaseTime;
     }
 
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
     // Update is called once per frame
     void Update()
     {
