@@ -21,9 +21,11 @@ public class Boss : Enemy
     [SerializeField] private GameObject spawnFour;
     [SerializeField] private GameObject shootEnemyPrefab;
     [SerializeField] private GameObject triShotPrefab;
+    [SerializeField] private GameObject meleePrefab;
 
     [SerializeField] private AudioClip killBoss;
     [SerializeField] private AudioClip bossShoot;
+    [SerializeField] private AudioClip bossSpawn;
 
     private EndGame eg;
 
@@ -64,14 +66,36 @@ public class Boss : Enemy
         runTimer += Time.deltaTime;
         if(isActive)
         {
-            if(!firstSpawnDone && health < 40)
+            if(!firstSpawnDone && health < 60)
             {
                 Instantiate(shootEnemyPrefab, spawnOne.transform.position, Quaternion.identity);
-                Instantiate(shootEnemyPrefab, spawnTwo.transform.position, Quaternion.identity);
-                Instantiate(shootEnemyPrefab, spawnThree.transform.position, Quaternion.identity);
+                Instantiate(meleePrefab, spawnTwo.transform.position, Quaternion.identity);
+                Instantiate(meleePrefab, spawnThree.transform.position, Quaternion.identity);
                 Instantiate(shootEnemyPrefab, spawnFour.transform.position, Quaternion.identity);
                 firstSpawnDone = true;
+                SFXManager.instance.PlaySoundFXClip(bossSpawn, transform, 0.4f);
             }
+
+            if (!secondSpawnDone && health < 40)
+            {
+                Instantiate(meleePrefab, spawnOne.transform.position, Quaternion.identity);
+                Instantiate(triShotPrefab, spawnTwo.transform.position, Quaternion.identity);
+                Instantiate(triShotPrefab, spawnThree.transform.position, Quaternion.identity);
+                Instantiate(meleePrefab, spawnFour.transform.position, Quaternion.identity);
+                secondSpawnDone = true;
+                SFXManager.instance.PlaySoundFXClip(bossSpawn, transform, 0.4f);
+            }
+
+            if (!thirdSpawnDone && health < 20)
+            {
+                Instantiate(triShotPrefab, spawnOne.transform.position, Quaternion.identity);
+                Instantiate(triShotPrefab, spawnTwo.transform.position, Quaternion.identity);
+                Instantiate(triShotPrefab, spawnThree.transform.position, Quaternion.identity);
+                Instantiate(triShotPrefab, spawnFour.transform.position, Quaternion.identity);
+                thirdSpawnDone = true;
+                SFXManager.instance.PlaySoundFXClip(bossSpawn, transform, 0.4f);
+            }
+
         }
 
 
