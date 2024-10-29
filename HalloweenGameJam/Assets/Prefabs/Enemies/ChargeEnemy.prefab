@@ -211,7 +211,7 @@ MonoBehaviour:
   flickerLength: 0.1
   damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   meleeRange: 5
-  chargeSpeed: 25
+  chargeSpeed: 15
   chargeCD: 2
   chargeRange: 20
   chargeFirstPhaseTime: 0.5
