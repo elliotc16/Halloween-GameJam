@@ -134,7 +134,7 @@ MonoBehaviour:
   flickerLength: 0.1
   damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   meleeRange: 5
-  lungeRange: 60
+  lungeRange: 40
   initialLungeSpeed: 10
   maxLungeSpeed: 25
   lungeCD: 5

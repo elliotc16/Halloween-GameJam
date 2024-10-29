@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float knockbackLength;
     private float directionX;
     private float directionY;
-    private bool isDashing;
+    public bool isDashing;
     private bool isKnockback;
 
     [SerializeField] private AudioClip dashSoundEffect;
