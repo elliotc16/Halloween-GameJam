@@ -20,9 +20,9 @@ public class BulletEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-       // rb.velocity = direction * speed; // apply velocity in fixed direction
+        transform.rotation = Quaternion.identity;
     }
 
     private void Update()
