@@ -13,8 +13,8 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        animator.SetInteger("X Axis", -1);
-        animator.SetInteger("Y Axis", 0);
+        animator.SetInteger("X Axis", 0);
+        animator.SetInteger("Y Axis", 1);
     }
 
     void FixedUpdate()
