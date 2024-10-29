@@ -15,12 +15,25 @@ public class Boss : Enemy
     [SerializeField] private float chargeThirdPhaseTime;    //percent of time spent on decceleration phase
 
     [SerializeField] protected GameObject bullet;
+    [SerializeField] private GameObject spawnOne;
+    [SerializeField] private GameObject spawnTwo;
+    [SerializeField] private GameObject spawnThree;
+    [SerializeField] private GameObject spawnFour;
+    [SerializeField] private GameObject shootEnemyPrefab;
+    [SerializeField] private GameObject triShotPrefab;
+
+    private EndGame eg;
+
+    private bool firstSpawnDone = false;
+    private bool secondSpawnDone = false;
+    private bool thirdSpawnDone = false;
 
     private float chargeTime = 0;
     private float chargeTimer = 0;
     //Phase charge is in, 0 if not charging
     private int chargePhase = 0;
     private float chargeCDTimer = 0;
+    private bool isActive = false;
 
     private Vector2 chargeVelocity;
     private Vector2 target;
@@ -32,6 +45,7 @@ public class Boss : Enemy
         base.Start();
         //So the times for the different phases add to 1
         chargeSecondPhaseTime = 1 - chargeFirstPhaseTime - chargeThirdPhaseTime;
+        eg = GetComponent<EndGame>();
     }
 
     void FixedUpdate()
@@ -42,7 +56,28 @@ public class Boss : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (chargePhase == 1)
+        if(isActive)
+        {
+            if(!firstSpawnDone && health < 40)
+            {
+                Instantiate(shootEnemyPrefab, spawnOne.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnTwo.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnThree.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnFour.transform.position, Quaternion.identity);
+                firstSpawnDone = true;
+            }
+        }
+
+
+        if(!isActive)
+        {
+            if(PlayerDistance() < sightRange)
+            {
+                isActive = true;
+                chargeCDTimer = 0;
+            }
+        }
+        else if (chargePhase == 1)
         {
             //velocity increases over time, lerp calculates it as a percentage of time passed
             //Time for first phase is total charge time(chargeTime) multiplied by percent of time to be spent in first phase(chargeFIrstPhaseTime)
@@ -129,6 +164,17 @@ public class Boss : Enemy
         chargeVelocity = direction * chargeSpeed; //max velocity reached at mid point of lunge
     }
 
+    public override void TakeDamage(float damage)
+    {
+        SFXManager.instance.PlaySoundFXClip(damageSound, transform, 0.25f);
+        health -= damage;
+        if (health <= 0)
+        {
+            eg.gameWon();
+            Destroy(gameObject);
+        }
+        Flicker();
+    }
     public void ShootEightWays()
     {
         var startingAngle = 0;
@@ -137,6 +183,7 @@ public class Boss : Enemy
         {
             GameObject instance = Instantiate(bullet);
             instance.GetComponent<BulletEnemy>().Fire(transform.position, playerTransform.position, startingAngle + angleIncrement * i);
+
         }
                 
     }

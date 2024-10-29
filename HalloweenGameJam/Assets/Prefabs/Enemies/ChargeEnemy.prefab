@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.786074
+      value: -10.85
       objectReference: {fileID: 0}
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.532156
+      value: 433.92
       objectReference: {fileID: 0}
     - target: {fileID: 4640691595949631542, guid: 4ec29470b9f73d94a83dbcca05dab29b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96,6 +96,6 @@ MonoBehaviour:
   meleeRange: 5
   chargeSpeed: 25
   chargeCD: 2
-  chargeRange: 30
+  chargeRange: 20
   chargeFirstPhaseTime: 0.5
   chargeThirdPhaseTime: 0.05
