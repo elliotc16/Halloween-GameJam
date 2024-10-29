@@ -22,7 +22,7 @@ public class BulletEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.rotation = Quaternion.identity;
+        //transform.rotation = Quaternion.identity;
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class BulletEnemy : MonoBehaviour
         direction.Normalize();
         // rotate the projectile towards its target 
         float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
+        transform.rotation = Quaternion.Euler(0, 0, rotation + angle);
         direction = Quaternion.Euler(0, 0, angle) * direction;
         rb.velocity = direction * speed;
     }

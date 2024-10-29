@@ -219,7 +219,7 @@ MonoBehaviour:
   attackRate: 1
   flickerLength: 0.1
   damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
-  weaponRange: 18
+  weaponRange: 15
   bullet: {fileID: 3620067912164423695, guid: f6a6747a0fc228441b28b0b0a630727e, type: 3}
 --- !u!61 &-2943645300180020573
 BoxCollider2D:
