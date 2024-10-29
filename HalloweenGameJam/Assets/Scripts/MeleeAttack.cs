@@ -32,7 +32,7 @@ public class MeleeAttack : MonoBehaviour
             transform.position += RotatePoint.transform.position - (Vector3)PrevPosition;
             PrevPosition = RotatePoint.transform.position;
 
-            deltaAngle = angleToSweep * (Time.deltaTime / meleeLength);
+            deltaAngle = -angleToSweep * (Time.deltaTime / meleeLength);
             transform.RotateAround(RotatePoint.transform.position, Vector3.forward, deltaAngle);
             timer += Time.deltaTime;
             if (timer > meleeLength)
@@ -50,7 +50,7 @@ public class MeleeAttack : MonoBehaviour
         timer = 0;
 
         PrevPosition = RotatePoint.transform.position;
-        transform.RotateAround(RotatePoint.transform.position, Vector3.forward, - angleToSweep/2);
+        transform.RotateAround(RotatePoint.transform.position, Vector3.forward, angleToSweep/2);
 
     }
 }

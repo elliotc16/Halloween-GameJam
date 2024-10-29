@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c773b4ebd0fb24429984710d9353376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeleeAttack: {fileID: 7417697655187379237, guid: 666f9e034b1440942994148b383a3f82, type: 3}
+  MeleeAttack: {fileID: 1537796608162037709, guid: bdc0475aa14d2aa46ba42fb3549858fc, type: 3}
   meleeLength: 0.3
   angleToSweep: 120
   meleeRange: 1.5
