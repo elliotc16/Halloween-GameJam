@@ -94,11 +94,6 @@ public class ChargeEnemy : Enemy
             }
         }
 
-        else if (PlayerDistance() < meleeRange)
-        {
-            //something something attack
-
-        }
         //Lunges if player in range and lunge cooldown done
         else if (PlayerDistance() < chargeRange && chargeCDTimer > chargeCD)
         {
