@@ -12,6 +12,7 @@ public class PlayerPickUpItem : MonoBehaviour
     void Start()
     {
         playerCombat = GetComponent<PlayerCombat>();
+        displayHealth = GetComponent<DisplayHealth>();
     }
 
 
@@ -32,7 +33,7 @@ public class PlayerPickUpItem : MonoBehaviour
 
             }
             displayHealth.DisplayHP(playerCombat.health);
-            SFXManager.instance.PlaySoundFXClip(hpGetAudio, transform, 0.3f);
+            SFXManager.instance.PlaySoundFXClip(hpGetAudio, transform, 0.1f);
             // collect item and apply effect
             Destroy(collision.gameObject);
         }
