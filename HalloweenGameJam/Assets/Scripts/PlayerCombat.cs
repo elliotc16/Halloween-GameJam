@@ -27,7 +27,6 @@ public class PlayerCombat : MonoBehaviour
     private bool hidden;
 
     private Melee Melee;
-    private DisplayHealth DisplayHealth;
     private SpriteRenderer sr;
     void Start()
     {
@@ -37,9 +36,6 @@ public class PlayerCombat : MonoBehaviour
         health = maxHealth;
         sr = GetComponent<SpriteRenderer>();
         Melee = GetComponent<Melee>();
-        DisplayHealth = GetComponent<DisplayHealth>();
-
-        DisplayHealth.DisplayHP(health);
     }
 
     void Update()
@@ -102,7 +98,6 @@ public class PlayerCombat : MonoBehaviour
     {
         if (collision.gameObject.tag == "EnemyBullet")
         {
-            //Debug.Log("Hmmm");
             Destroy(collision.gameObject);
             TakeDamage(1);
         }
@@ -123,9 +118,7 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         SFXManager.instance.PlaySoundFXClip(damageSoundEffect, transform, 0.6f);
-        
         TurnInvincible();
-        DisplayHealth.DisplayHP(health);
     }
 
     private void playerDies()
