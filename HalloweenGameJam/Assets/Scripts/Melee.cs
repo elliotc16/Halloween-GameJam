@@ -5,6 +5,7 @@ using UnityEngine;
 public class Melee : MonoBehaviour
 {
     [SerializeField] private GameObject MeleeAttack;
+    [SerializeField] private GameObject MeleeWeapon;
     [SerializeField] private float meleeLength;
     [SerializeField] private float angleToSweep;
     [SerializeField] private float meleeRange;
@@ -27,7 +28,7 @@ public class Melee : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var instance = Instantiate(MeleeAttack, startingPos, Quaternion.Euler(0f, 0f, angle - 90), gameObject.transform);
-        instance.GetComponent<MeleeAttack>().MeleeRotation(meleeLength, gameObject, angleToSweep);
+        instance.GetComponent<MeleeAttack>().MeleeRotation(meleeLength, gameObject, angleToSweep, MeleeWeapon);
 
     }
 }

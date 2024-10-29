@@ -8,6 +8,8 @@ public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] public float damage;
 
+    GameObject disappearingMeleeWeapon;
+
     float angleToSweep;
     float timer;
     float deltaAngle;
@@ -29,6 +31,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (active)
         {
+            disappearingMeleeWeapon.GetComponent<Renderer>().enabled = false;
             transform.position += RotatePoint.transform.position - (Vector3)PrevPosition;
             PrevPosition = RotatePoint.transform.position;
 
@@ -37,15 +40,17 @@ public class MeleeAttack : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > meleeLength)
             {
+                disappearingMeleeWeapon.GetComponent<Renderer>().enabled = true;
                 Destroy(gameObject);
             }
         }
     }
-    public void MeleeRotation(float meleeLength, GameObject RotatePoint, float angleToSweep)
+    public void MeleeRotation(float meleeLength, GameObject RotatePoint, float angleToSweep, GameObject MeleeWeapon)
     {
         this.meleeLength = meleeLength;
         this.RotatePoint = RotatePoint;
         this.angleToSweep = angleToSweep;
+        this.disappearingMeleeWeapon = MeleeWeapon;
         active = true;
         timer = 0;
 
