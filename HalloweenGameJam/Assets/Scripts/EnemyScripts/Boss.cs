@@ -22,6 +22,9 @@ public class Boss : Enemy
     [SerializeField] private GameObject shootEnemyPrefab;
     [SerializeField] private GameObject triShotPrefab;
 
+    [SerializeField] private AudioClip killBoss;
+    [SerializeField] private AudioClip bossShoot;
+
     private EndGame eg;
 
     private bool firstSpawnDone = false;
@@ -170,8 +173,10 @@ public class Boss : Enemy
         health -= damage;
         if (health <= 0)
         {
-            eg.gameWon();
             Destroy(gameObject);
+            SFXManager.instance.PlaySoundFXClip(killBoss, gameObject.transform, 0.3f);
+            eg.gameWon();
+            
         }
         Flicker();
     }
@@ -185,6 +190,7 @@ public class Boss : Enemy
             instance.GetComponent<BulletEnemy>().Fire(transform.position, playerTransform.position, startingAngle + angleIncrement * i);
 
         }
+        SFXManager.instance.PlaySoundFXClip(bossShoot, gameObject.transform, 0.5f);
                 
     }
 }
