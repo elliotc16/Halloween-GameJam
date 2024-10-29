@@ -37,6 +37,7 @@ public class Boss : Enemy
     private int chargePhase = 0;
     private float chargeCDTimer = 0;
     private bool isActive = false;
+    public static float runTimer = 0;
 
     private Vector2 chargeVelocity;
     private Vector2 target;
@@ -49,6 +50,7 @@ public class Boss : Enemy
         //So the times for the different phases add to 1
         chargeSecondPhaseTime = 1 - chargeFirstPhaseTime - chargeThirdPhaseTime;
         eg = GetComponent<EndGame>();
+        runTimer = 0;
     }
 
     void FixedUpdate()
@@ -59,6 +61,7 @@ public class Boss : Enemy
     // Update is called once per frame
     void Update()
     {
+        runTimer += Time.deltaTime;
         if(isActive)
         {
             if(!firstSpawnDone && health < 40)
