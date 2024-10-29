@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         SFXManager.instance.PlaySoundFXClip(damageSound, transform, 0.25f);
         health -= damage;

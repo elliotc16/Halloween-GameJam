@@ -19,7 +19,10 @@ public class Boss : Enemy
     [SerializeField] private GameObject spawnTwo;
     [SerializeField] private GameObject spawnThree;
     [SerializeField] private GameObject spawnFour;
+    [SerializeField] private GameObject shootEnemyPrefab;
     [SerializeField] private GameObject triShotPrefab;
+
+    private EndGame eg;
 
     private bool firstSpawnDone = false;
     private bool secondSpawnDone = false;
@@ -42,6 +45,7 @@ public class Boss : Enemy
         base.Start();
         //So the times for the different phases add to 1
         chargeSecondPhaseTime = 1 - chargeFirstPhaseTime - chargeThirdPhaseTime;
+        eg = GetComponent<EndGame>();
     }
 
     void FixedUpdate()
@@ -56,10 +60,10 @@ public class Boss : Enemy
         {
             if(!firstSpawnDone && health < 40)
             {
-                Instantiate(triShotPrefab, spawnOne.transform.position, Quaternion.identity);
-                Instantiate(triShotPrefab, spawnTwo.transform.position, Quaternion.identity);
-                Instantiate(triShotPrefab, spawnThree.transform.position, Quaternion.identity);
-                Instantiate(triShotPrefab, spawnFour.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnOne.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnTwo.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnThree.transform.position, Quaternion.identity);
+                Instantiate(shootEnemyPrefab, spawnFour.transform.position, Quaternion.identity);
                 firstSpawnDone = true;
             }
         }
@@ -70,6 +74,7 @@ public class Boss : Enemy
             if(PlayerDistance() < sightRange)
             {
                 isActive = true;
+                chargeCDTimer = 0;
             }
         }
         else if (chargePhase == 1)
@@ -159,6 +164,17 @@ public class Boss : Enemy
         chargeVelocity = direction * chargeSpeed; //max velocity reached at mid point of lunge
     }
 
+    public override void TakeDamage(float damage)
+    {
+        SFXManager.instance.PlaySoundFXClip(damageSound, transform, 0.25f);
+        health -= damage;
+        if (health <= 0)
+        {
+            eg.gameWon();
+            Destroy(gameObject);
+        }
+        Flicker();
+    }
     public void ShootEightWays()
     {
         var startingAngle = 0;
