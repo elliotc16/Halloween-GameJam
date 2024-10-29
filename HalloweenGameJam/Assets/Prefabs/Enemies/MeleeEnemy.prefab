@@ -140,7 +140,7 @@ MonoBehaviour:
   lungeRange: 20
   initialLungeSpeed: 5
   maxLungeSpeed: 12
-  lungeCD: 1
+  lungeCD: 1.5
   meleeCDAfterLunge: 0.1
 --- !u!114 &6304428559873729402
 MonoBehaviour:

@@ -198,7 +198,7 @@ MonoBehaviour:
   damage: 1
   health: 5
   sightRange: 18
-  attackRate: 0.7
+  attackRate: 0.6
   flickerLength: 0.1
   damageSound: {fileID: 8300000, guid: 490e23e4972cff540b8aaa6528dc9692, type: 3}
   weaponRange: 12
