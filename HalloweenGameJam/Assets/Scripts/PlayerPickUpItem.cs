@@ -26,6 +26,7 @@ public class PlayerPickUpItem : MonoBehaviour
         Debug.Log("AGEG");
         if (collision.gameObject.CompareTag("Heart"))
         {
+            Destroy(collision.gameObject);
             playerCombat.health += 1;
             if(playerCombat.health > 5) 
             {
@@ -35,7 +36,6 @@ public class PlayerPickUpItem : MonoBehaviour
             displayHealth.DisplayHP(playerCombat.health);
             SFXManager.instance.PlaySoundFXClip(hpGetAudio, transform, 0.1f);
             // collect item and apply effect
-            Destroy(collision.gameObject);
         }
     }
 }
