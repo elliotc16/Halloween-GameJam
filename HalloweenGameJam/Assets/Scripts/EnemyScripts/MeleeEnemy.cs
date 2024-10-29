@@ -77,6 +77,7 @@ public class MeleeEnemy : Enemy
         //make regular melee attack
         else if(PlayerDistance() < meleeRange && attackTimer > 1 / attackRate)
         {
+            rb.velocity = Vector2.zero;
             Vector2 direction = playerTransform.position - transform.position;
             direction.Normalize();
             Melee.MakeMeleeAttack(direction);
@@ -85,6 +86,7 @@ public class MeleeEnemy : Enemy
         //Lunges if player in range and lunge cooldown done
         else if(PlayerDistance() < lungeRange && lungeCDTimer > lungeCD)
         {
+            rb.velocity = Vector2.zero;
             lungeAttack();
             attackTimer = (1/attackRate) - meleeCDAfterLunge;
         }

@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerPickUpItem : MonoBehaviour
 {
 
+    private PlayerCombat playerCombat;
+    private DisplayHealth displayHealth;
+    [SerializeField] private AudioClip hpGetAudio;
+
     void Start()
     {
-        
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
 
@@ -18,11 +22,19 @@ public class PlayerPickUpItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        Debug.Log("AGEG");
+        if (collision.gameObject.CompareTag("Heart"))
         {
+            playerCombat.health += 1;
+            if(playerCombat.health > 5) 
+            {
+                playerCombat.health = 5;
+
+            }
+            displayHealth.DisplayHP(playerCombat.health);
+            SFXManager.instance.PlaySoundFXClip(hpGetAudio, transform, 0.3f);
             // collect item and apply effect
             Destroy(collision.gameObject);
-            Debug.Log("Item collected");
         }
     }
 }

@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private AudioClip meleeSoundEffect;
     [SerializeField] private AudioClip damageSoundEffect;
 
-    private int health;
+    public int health;
     private float timer;
     private float meleeTimer;
     private bool invincible;
