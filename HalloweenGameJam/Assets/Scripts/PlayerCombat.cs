@@ -27,6 +27,7 @@ public class PlayerCombat : MonoBehaviour
     private bool hidden;
 
     private Melee Melee;
+    private PlayerMovement playerMovement;
     private DisplayHealth DisplayHealth;
     private SpriteRenderer sr;
     void Start()
@@ -38,6 +39,7 @@ public class PlayerCombat : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         Melee = GetComponent<Melee>();
         DisplayHealth = GetComponent<DisplayHealth>();
+        playerMovement = GetComponent<PlayerMovement>();
 
         DisplayHealth.DisplayHP(health);
     }
@@ -111,7 +113,7 @@ public class PlayerCombat : MonoBehaviour
     {
 
         //No damage if invicible
-        if (invincible)
+        if (invincible || playerMovement.isDashing)
         {
             return;
         }
