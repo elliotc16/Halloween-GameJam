@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Wall
   - Melee
+  - Heart
   layers:
   - Default
   - TransparentFX
